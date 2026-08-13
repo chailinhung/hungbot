@@ -15,16 +15,16 @@
     <div class="loader"></div>
     <script>
         // 🔔 請確保此處為您 LIFF_ID
-        const LIFF_ID = '2010215507-TXivMPb5'; 
+        const LIFF_ID = '2010215773-Z1Z86z5x'; 
         
         // 🔔 請確保此處為您後端 GAS Web App 的部署網址
-        const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzi10-r0peJARUqFQhHES3Q1qdkjgBghm1HlnwjHsNC0vpdGUP2tilKroOAjZArzTcPVQ/exec';
+        const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby7hWVeoB0l8BJM0WpqrudARsYIz-Jok1CYnZ5XhkwP94tLUaMs5eXklZMD8nIn34IK/exec';
 
         // 🔔 請將此處改為您 GitHub Pages 的專案根目錄網址（尾端不加斜線）
         const GITHUB_PAGES_BASE = 'https://chailinhung.github.io/aiorderbot';
 
         async function init() {
-            // 設置 5 秒超時防止 LIFF 載入卡死
+            // 設置 ｘ 秒超時防止 LIFF 載入卡死
             const timeoutPromise = new Promise(resolve => setTimeout(() => resolve({ userName: "" }), 5000));
 
             const liffPromise = (async () => {
@@ -53,7 +53,7 @@
                 }
             })();
 
-            // 競賽：看是 LIFF 先跑完還是 5 秒先到
+            // 競賽：看是 LIFF 先跑完還是 ｘ 秒先到
             const result = await Promise.race([liffPromise, timeoutPromise]);
 
             if (result && result.waitLogin) return; // 如果正在跳轉登入，則不執行後續
